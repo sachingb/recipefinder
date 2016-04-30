@@ -9,8 +9,12 @@
 	</tr>
 	<% @recipes.each do |rec| %>
 		<tr class=<%= cycle('even', 'odd') %>>
-			<td><%= image_tag(rec["image_url"], size: "100x100") %></td>
-			<td><%= formatted_title(rec["title"]) %></td>
+			<td>
+				<%= link_to "#{image_tag(rec["image_url"], size: "100x100")}".html_safe, rec["source_url"] %>
+			</td>
+			<td>
+				<%= link_to "#{formatted_title(rec["title"])}".html_safe, rec["source_url"] %>
+			</td>
 			<td><%= rec["social_rank"] %></td>
 		</tr>
 	<% end %>
